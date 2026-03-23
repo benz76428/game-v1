@@ -1,9 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://8yommuxxcijv"]
+[gd_scene load_steps=4 format=3 uid="uid://8yommuxxcijv"]
 
 [ext_resource type="Script" uid="uid://ddve4r5y3o3bw" path="res://Scenes/LEVELHUD/hud.gd" id="1_ytusa"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ytusa"]
 bg_color = Color(0.9551888, 0.29545933, 0.7296503, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_thh3i"]
+bg_color = Color(0.9978271, 0.3325435, 0.37721354, 1)
+corner_radius_top_left = 7
+corner_radius_top_right = 7
+corner_radius_bottom_right = 7
+corner_radius_bottom_left = 7
 
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource("1_ytusa")
@@ -35,3 +42,12 @@ offset_left = -20.0
 offset_right = 20.0
 offset_bottom = 23.0
 grow_horizontal = 2
+
+[node name="HealthBar" type="ProgressBar" parent="Control"]
+layout_mode = 1
+offset_top = 29.0
+offset_right = 85.0
+offset_bottom = 56.0
+theme_override_styles/fill = SubResource("StyleBoxFlat_thh3i")
+value = 100.0
+show_percentage = false

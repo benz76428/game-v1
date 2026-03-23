@@ -23,7 +23,7 @@ func take_damage():
 	if health <= 0:
 		# Use set_deferred to turn off physics immediately 
 		# so no more bullets can hit this enemy while it's dying
-		$CollisionShape2D.set_deferred("disabled", true)
+		$Hitbox.set_deferred("disabled", true)
 		
 		# Use call_deferred to run the spawn logic safely in the next frame
 		call_deferred("_on_death")
@@ -45,3 +45,11 @@ func _on_death():
 	
 	# 4. Finally, remove the enemy
 	queue_free()
+	
+	# This function runs automatically whenever a physics body touches the Hitbox Area2D
+func _on_hitbox_body_entered(body: Node2D) -> void:
+	# Check if the thing we just bumped into is the player
+	if body == player:
+		# Tell the player to take 10 damage! (Change the number to whatever you want)
+		if body.has_method("take_damage"):
+			body.take_damage(10)

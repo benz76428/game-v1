@@ -7,6 +7,8 @@ signal health_changed(current_health, max_health) # Added a signal for your HUD!
 
 const MUTATION_PICKER_SCENE = preload("res://Scenes/picker/mutation_picker.tscn")
 
+var max_health: int = 100
+var health: int = max_health
 # ==========================================
 # BASE STATS (The raw, naked player stats)
 # ==========================================
@@ -94,18 +96,26 @@ func recalculate_stats() -> void:
 	current_health = clamp(current_health, 0, current_max_health)
 	health_changed.emit(current_health, current_max_health)
 
-func take_damage(amount: float = 10.0) -> void:
-	# We added this because your enemy bullets are already looking for it!
+func take_damage(amount: int) -> void:
+	# Subtract the damage from the player's health
 	current_health -= amount
-	health_changed.emit(current_health, current_max_health)
-	print("Player took damage! Health: ", current_health)
 	
-	# Example of where you would trigger adrenaline later:
-	# if current_health < current_max_health * 0.3:
-	#     trigger_adrenaline()
+	# Emit the signal so your HUD updates!
+	health_changed.emit(current_health, current_max_health)
+	
+	print("Player took ", amount, " damage! Health is now: ", current_health)
 	
 	if current_health <= 0:
-		die()
+		print("Player died!")
+		# We can add game over logic here later
+
+# If you have healing items/mutations, do the same:
+func heal(amount: int):
+	health += amount
+	if health > max_health:
+		health = max_health
+	
+	health_changed.emit(health, max_health)
 
 func die() -> void:
 	print("Player has died!")
