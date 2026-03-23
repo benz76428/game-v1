@@ -1,6 +1,5 @@
-extends Area2D
+extends BaseWeapon
 
-var fire_rate: float = 0.2 
 var fire_timer: float = 0.0
 
 func _physics_process(delta: float) -> void:
@@ -11,17 +10,19 @@ func _physics_process(delta: float) -> void:
 	if fire_timer > 0:
 		fire_timer -= delta
 		
-func use():
+# --- CHANGED: Renamed use() to shoot(aim_dir) to match BaseWeapon ---
+func shoot(aim_dir: Vector2) -> void:
 	# ONLY shoot if the cooldown timer is at or below zero
 	if fire_timer <= 0:
-		const BULLET = preload("res://Scenes/Weapons/bullet.tscn")
+		const BULLET = preload("res://Scenes/Weapons/pistol/bullet.tscn")
 		var new_bullet = BULLET.instantiate()
 		
 		new_bullet.global_position = %ShootingPoint.global_position 
 		new_bullet.global_rotation = %ShootingPoint.global_rotation 
 		
-		# Add to the main scene tree [cite: 7]
+		# Add to the main scene tree
 		get_tree().current_scene.add_child(new_bullet)
 		
 		# RESET the timer so you have to wait for the next shot
+		# (fire_rate is inherited automatically from BaseWeapon!)
 		fire_timer = fire_rate

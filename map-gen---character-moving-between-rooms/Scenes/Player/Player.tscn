@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dv8e6smecpjhd" path="res://Test Assets/Characters/Basic Charakter Actions.png" id="2_o3ifh"]
 [ext_resource type="Texture2D" uid="uid://cs3vplrj5chvg" path="res://Test Assets/lab man/lab man back.png" id="3_w71ue"]
 [ext_resource type="Script" uid="uid://knilhbtsj42x" path="res://Scenes/Player/idle_state.gd" id="4_1tkam"]
-[ext_resource type="PackedScene" uid="uid://du5i8r7jdycua" path="res://Scenes/Weapons/gun.tscn" id="4_fk5o5"]
+[ext_resource type="PackedScene" uid="uid://du5i8r7jdycua" path="res://Scenes/Weapons/pistol/gun.tscn" id="4_fk5o5"]
 [ext_resource type="Script" uid="uid://c17sq7y3cyvp" path="res://Scripts/state_machine/node_state_machine.gd" id="4_n35ei"]
 [ext_resource type="Texture2D" uid="uid://da5e5d6gm6rn5" path="res://Test Assets/lab man/front lab man walking1.png" id="4_spxdj"]
 [ext_resource type="Texture2D" uid="uid://iyc45rx4swrb" path="res://Test Assets/lab man/lab man left.png" id="5_1e6p3"]

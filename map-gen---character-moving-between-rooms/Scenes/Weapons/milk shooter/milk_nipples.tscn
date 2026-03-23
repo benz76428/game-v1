@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://b4twc7dkf5uvf"]
+
+[ext_resource type="Script" uid="uid://d31cwb0r1cwt1" path="res://Scenes/Weapons/milk shooter/milk_nipples.gd" id="1_71743"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dk5gl"]
+radius = 111.15755
+
+[node name="Gun" type="Area2D"]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_71743")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_dk5gl")
+
+[node name="WeaponPivot" type="Marker2D" parent="."]
+rotation = 0.0013343096
+
+[node name="ShootingPoint" type="Marker2D" parent="WeaponPivot"]
+unique_name_in_owner = true
+position = Vector2(99.99993, -9.098741)

@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="WeaponMutation" load_steps=4 format=3 uid="uid://d2yih0xomj1po"]
+
+[ext_resource type="Texture2D" uid="uid://e1qx1oeab31" path="res://Art/Art/Icons/icon.svg" id="1_l211o"]
+[ext_resource type="Script" uid="uid://cxuamdw26wrej" path="res://Scenes/Weapons/weapon_mutation.gd" id="2_3hmu5"]
+[ext_resource type="PackedScene" uid="uid://b4twc7dkf5uvf" path="res://Scenes/Weapons/milk shooter/milk_nipples.tscn" id="3_5fh4d"]
+
+[resource]
+script = ExtResource("2_3hmu5")
+weapon_scene = ExtResource("3_5fh4d")
+mutation_name = "Calcium Cannons"
+description = "Shoot Milk"
+icon = ExtResource("1_l211o")
+mutation_type = 1
+metadata/_custom_type_script = "uid://cxuamdw26wrej"
