@@ -1,10 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://be3h6rh1gcf50"]
+[gd_scene load_steps=4 format=3 uid="uid://be3h6rh1gcf50"]
 
 [ext_resource type="Script" uid="uid://btmbwlpsi2ktn" path="res://Scenes/picker/mutation_picker.gd" id="1_stqne"]
+[ext_resource type="Script" uid="uid://br04wd3kk6jxn" path="res://Scripts/mutation.gd" id="2_n03u0"]
+[ext_resource type="Resource" uid="uid://4efsnv3e421h" path="res://Scripts/mutations/minor_health_dna.tres" id="3_7kc2t"]
 
 [node name="MutationPicker" type="CanvasLayer"]
 process_mode = 3
 script = ExtResource("1_stqne")
+possible_mutations = Array[ExtResource("2_n03u0")]([ExtResource("3_7kc2t")])
 
 [node name="ColorRect" type="ColorRect" parent="."]
 visibility_layer = 512

@@ -23,7 +23,7 @@ var mutations = {
 	"milk_nipples": {"active": false, "level": 0},
 	"fart_dash": {"active": false, "level": 0}
 }
-
+var active_mutations: Array[Mutation] = []
 # --- Weapon Slot References ---
 @onready var slot_lmb = $Gun
 @onready var slot_rmb = get_node_or_null("MilkNipples")
@@ -95,11 +95,17 @@ func level_up():
 	level_changed.emit(current_level)
 	xp_changed.emit(current_xp, xp_to_next_level)
 	
+	# --- THE NEW MUTATION MENU LOGIC ---
+	var picker_instance = MUTATION_PICKER_SCENE.instantiate()
+	
+	# Add the UI to the current scene tree
+	get_tree().current_scene.add_child(picker_instance)
+	
+	# Pause the game so enemies stop moving while you choose!
 	get_tree().paused = true
-	var picker = MUTATION_PICKER_SCENE.instantiate()
-	add_sibling(picker) 
-	picker.setup_options(mutations.keys())
-	picker.mutation_selected.connect(_on_mutation_chosen)
+	
+	# Call the NEW function we created in mutation_picker.gd
+	picker_instance.generate_choices()
 
 func _on_mutation_chosen(m_name: String):
 	mutations[m_name]["active"] = true
@@ -109,3 +115,10 @@ func _on_mutation_chosen(m_name: String):
 		slot_rmb.visible = true
 	
 	print("Mutation Level Up: ", m_name, " is now Level ", mutations[m_name]["level"])
+func inject_dna(new_mutation: Mutation) -> void:
+	active_mutations.append(new_mutation)
+	
+	# The magic happens here: the mutation modifies the player itself!
+	new_mutation.apply_mutation(self)
+	
+	# Optional: Play a sound, flash the screen green, etc.

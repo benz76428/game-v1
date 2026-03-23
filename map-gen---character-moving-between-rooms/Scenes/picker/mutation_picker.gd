@@ -4,36 +4,35 @@ signal mutation_selected(mutation_name)
 
 # Change the $ to a % here:
 @onready var container: HBoxContainer = %HBoxContainer 
-
-var mutation_data = {
-	"fart_dash": {
-		"title": "Fart Dash",
-		"description": "Press 'Space' to dash. Leaves A Fart Cloud that poisens enemies within it"
-	},
-	"milk_nipples": {
-		"title": "Milk Nipples",
-		"description": "shoot milk from yo titties"
-	}
-}
-
-func setup_options(available_mutations: Array):
-	# SAFETY: If the node isn't ready yet, wait a frame
-	if not is_inside_tree(): await ready
-	
-	for child in container.get_children():
-		child.queue_free()
-	
-	for m_name in available_mutations:
-		var btn = Button.new()
-		var data = mutation_data[m_name]
+@export var possible_mutations: Array[Mutation]
+func generate_choices() -> void:
+	# Make sure we have mutations to pick from!
+	if possible_mutations.is_empty():
+		print("ERROR: No mutations assigned in the inspector!")
+		return
 		
-		btn.text = data["title"] + "\n\n" + data["description"]
-		btn.custom_minimum_size = Vector2(200, 300)
+	# Shuffle the array to get random mutations
+	possible_mutations.shuffle()
+	
+	# Pick the first 3 (or fewer if you don't have 3 yet)
+	var num_choices = min(3, possible_mutations.size())
+	
+	for i in range(num_choices):
+		var mutation_data = possible_mutations[i]
 		
-		btn.pressed.connect(_on_option_selected.bind(m_name))
-		container.add_child(btn)
-
-func _on_option_selected(m_name: String):
-	mutation_selected.emit(m_name)
-	get_tree().paused = false
+		# Assuming you have UI buttons or panels set up
+		var button = get_node("Button" + str(i + 1)) 
+		button.text = mutation_data.mutation_name
+		# If you have descriptions/icons:
+		# button.get_node("Description").text = mutation_data.description
+		# button.get_node("Icon").texture = mutation_data.icon
+		
+# Inside mutation_picker.gd, when a button is pressed:
+func _on_button_pressed(mutation_data: Mutation) -> void:
+	# Get your player (you might emit a signal here, or call the player directly)
+	var player = get_tree().get_first_node_in_group("player") 
+	if player:
+		player.inject_dna(mutation_data)
+		
+	# Close the UI and unpause
 	queue_free()
