@@ -4,14 +4,18 @@
 [ext_resource type="Texture2D" uid="uid://bw36ig60cpuaq" path="res://Art/Sprites/Square.png" id="2_8w1eu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v6jx4"]
-size = Vector2(1, 1)
+size = Vector2(3, 3)
 
 [node name="milk projectile" type="Area2D"]
+light_mask = 0
+visibility_layer = 3
 script = ExtResource("1_pfi03")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_v6jx4")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.33333337, 0.33333337)
+scale = Vector2(0.9166667, 0.9166667)
 texture = ExtResource("2_8w1eu")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

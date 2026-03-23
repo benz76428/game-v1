@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://du5i8r7jdycua"]
+[gd_scene load_steps=5 format=3 uid="uid://du5i8r7jdycua"]
 
 [ext_resource type="Script" uid="uid://l3geivk2quen" path="res://Scenes/Weapons/pistol/gun.gd" id="1_dk5gl"]
 [ext_resource type="Texture2D" uid="uid://cswb5do8rrj7q" path="res://Scenes/Weapons/pistol/pistol.png" id="1_vk1bi"]
+[ext_resource type="PackedScene" uid="uid://b5ixw66oaedki" path="res://Scenes/Weapons/pistol/bullet.tscn" id="2_r5bh0"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_dk5gl"]
 radius = 760.2901
@@ -10,6 +11,8 @@ radius = 760.2901
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("1_dk5gl")
+projectile_scene = ExtResource("2_r5bh0")
+fire_rate = 0.1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_dk5gl")
