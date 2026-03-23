@@ -2,37 +2,53 @@ extends CanvasLayer
 
 signal mutation_selected(mutation_name)
 
-# Change the $ to a % here:
 @onready var container: HBoxContainer = %HBoxContainer 
+
+# This is where you dragged your .tres files in the Inspector
 @export var possible_mutations: Array[Mutation]
+
 func generate_choices() -> void:
-	# Make sure we have mutations to pick from!
+	# SAFETY: Wait for the UI to be fully loaded before adding buttons
+	if not is_inside_tree(): await ready
+	
+	# 1. Clear out any old buttons if they exist
+	for child in container.get_children():
+		child.queue_free()
+		
+	# 2. Check if we have mutations
 	if possible_mutations.is_empty():
 		print("ERROR: No mutations assigned in the inspector!")
 		return
 		
-	# Shuffle the array to get random mutations
-	possible_mutations.shuffle()
+	# 3. Duplicate and shuffle the array so we get random choices
+	var available = possible_mutations.duplicate()
+	available.shuffle()
 	
-	# Pick the first 3 (or fewer if you don't have 3 yet)
-	var num_choices = min(3, possible_mutations.size())
+	# Pick up to 3 choices
+	var num_choices = min(3, available.size())
 	
+	# 4. Create the buttons dynamically!
 	for i in range(num_choices):
-		var mutation_data = possible_mutations[i]
+		var mutation_data = available[i]
+		var btn = Button.new()
 		
-		# Assuming you have UI buttons or panels set up
-		var button = get_node("Button" + str(i + 1)) 
-		button.text = mutation_data.mutation_name
-		# If you have descriptions/icons:
-		# button.get_node("Description").text = mutation_data.description
-		# button.get_node("Icon").texture = mutation_data.icon
+		# Set the text and size
+		btn.text = mutation_data.mutation_name + "\n\n" + mutation_data.description
+		btn.custom_minimum_size = Vector2(200, 300)
 		
-# Inside mutation_picker.gd, when a button is pressed:
+		# Connect the button click to our function, passing the specific mutation
+		btn.pressed.connect(_on_button_pressed.bind(mutation_data))
+		
+		# Add the button to your UI container
+		container.add_child(btn)
+
 func _on_button_pressed(mutation_data: Mutation) -> void:
-	# Get your player (you might emit a signal here, or call the player directly)
+	# Find the player in the scene
 	var player = get_tree().get_first_node_in_group("player") 
 	if player:
+		# Give the player the new DNA
 		player.inject_dna(mutation_data)
 		
-	# Close the UI and unpause
+	# Unpause the game and destroy the menu
+	get_tree().paused = false
 	queue_free()
