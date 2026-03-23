@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://br07bpul07nqr"]
+
+[ext_resource type="PackedScene" uid="uid://bvl21spypis7c" path="res://BaseRoom.tscn" id="1_w0rxx"]
+
+[node name="Room" instance=ExtResource("1_w0rxx")]
+door_left = true

@@ -1,0 +1,37 @@
+[gd_scene load_steps=3 format=3 uid="uid://8yommuxxcijv"]
+
+[ext_resource type="Script" uid="uid://ddve4r5y3o3bw" path="res://Scenes/LEVELHUD/hud.gd" id="1_ytusa"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ytusa"]
+bg_color = Color(0.9551888, 0.29545933, 0.7296503, 1)
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_ytusa")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+
+[node name="XPBar" type="ProgressBar" parent="Control"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -2.0
+offset_right = 85.5
+offset_bottom = 7.0
+grow_horizontal = 2
+theme_override_styles/fill = SubResource("StyleBoxFlat_ytusa")
+show_percentage = false
+
+[node name="LevelLabel" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 23.0
+grow_horizontal = 2

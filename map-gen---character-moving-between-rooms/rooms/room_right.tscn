@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://bp57yxni0knhf"]
+
+[ext_resource type="PackedScene" uid="uid://bvl21spypis7c" path="res://BaseRoom.tscn" id="1_8ytuf"]
+
+[node name="Room" instance=ExtResource("1_8ytuf")]
+door_right = true
+
+[node name="ColorRect" type="ColorRect" parent="." index="1"]
+offset_right = 1204.0
+offset_bottom = 666.0
+color = Color(3.272891e-06, 0.7707902, 0.42291087, 1)

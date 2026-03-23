@@ -1,0 +1,322 @@
+[gd_scene load_steps=55 format=3 uid="uid://lhdt6ldjlqlb"]
+
+[ext_resource type="Script" uid="uid://chgh2onotgt44" path="res://Scenes/Player/player.gd" id="1_l2atl"]
+[ext_resource type="Texture2D" uid="uid://dv8e6smecpjhd" path="res://Test Assets/Characters/Basic Charakter Actions.png" id="2_o3ifh"]
+[ext_resource type="Texture2D" uid="uid://cs3vplrj5chvg" path="res://Test Assets/lab man/lab man back.png" id="3_w71ue"]
+[ext_resource type="Script" uid="uid://knilhbtsj42x" path="res://Scenes/Player/idle_state.gd" id="4_1tkam"]
+[ext_resource type="PackedScene" uid="uid://du5i8r7jdycua" path="res://Scenes/Weapons/gun.tscn" id="4_fk5o5"]
+[ext_resource type="Script" uid="uid://c17sq7y3cyvp" path="res://Scripts/state_machine/node_state_machine.gd" id="4_n35ei"]
+[ext_resource type="Texture2D" uid="uid://da5e5d6gm6rn5" path="res://Test Assets/lab man/front lab man walking1.png" id="4_spxdj"]
+[ext_resource type="Texture2D" uid="uid://iyc45rx4swrb" path="res://Test Assets/lab man/lab man left.png" id="5_1e6p3"]
+[ext_resource type="Script" uid="uid://u7fwi4scaxlt" path="res://Scenes/Player/walk_state.gd" id="5_n35ei"]
+[ext_resource type="Texture2D" uid="uid://dqql0xas7wwmm" path="res://Test Assets/lab man/lab man right.png" id="6_yb677"]
+[ext_resource type="Texture2D" uid="uid://233esvu70ua2" path="res://Test Assets/lab man/front lab man walkingbobbing1.png" id="7_1e6p3"]
+[ext_resource type="Script" uid="uid://bvm1sthv8l7hr" path="res://Scenes/Player/basic_attack_state.gd" id="7_n35ei"]
+[ext_resource type="Texture2D" uid="uid://boia5hvxwb516" path="res://Test Assets/lab man/back lab man walking1.png" id="7_wwmao"]
+[ext_resource type="Texture2D" uid="uid://cc6x1gpr466th" path="res://Test Assets/lab man/back lab man walking2.png" id="8_7xdrn"]
+[ext_resource type="Texture2D" uid="uid://bm2cosixeno6n" path="res://Test Assets/lab man/front lab man walkingbobbing2.png" id="8_yb677"]
+[ext_resource type="Texture2D" uid="uid://bti57ii5jfpc2" path="res://Test Assets/lab man/front lab man walkingbobbing3.png" id="9_8cj01"]
+[ext_resource type="Texture2D" uid="uid://xp23towjsyen" path="res://Test Assets/lab man/back lab man walking3.png" id="9_wid83"]
+[ext_resource type="Texture2D" uid="uid://bpttlufeh58u2" path="res://Test Assets/lab man/back lab man walking4.png" id="10_g7gci"]
+[ext_resource type="Texture2D" uid="uid://725l8lhtlpje" path="res://Test Assets/lab man/front lab man walkingbobbing4.png" id="10_i2g7t"]
+[ext_resource type="Texture2D" uid="uid://b1eeahikykbsr" path="res://Test Assets/lab man/front lab man walkingbobbing5.png" id="11_io2mu"]
+[ext_resource type="Texture2D" uid="uid://cgxasxylvvxwh" path="res://Test Assets/lab man/back lab man walking5.png" id="11_r6t50"]
+[ext_resource type="Texture2D" uid="uid://bxwmxr1oawykr" path="res://Test Assets/lab man/back lab man walking6.png" id="12_6rswy"]
+[ext_resource type="Texture2D" uid="uid://t5fpuqtx0eb2" path="res://Test Assets/lab man/front lab man walkingbobbing6.png" id="12_e5iqy"]
+[ext_resource type="Texture2D" uid="uid://dlolkfd0vg2vg" path="res://Test Assets/lab man/front lab man walkingbobbing7.png" id="13_8t5qx"]
+[ext_resource type="Texture2D" uid="uid://kys16mmd0ul1" path="res://Test Assets/lab man/back lab man walking7.png" id="13_jbjyn"]
+[ext_resource type="Texture2D" uid="uid://dxsfjpr4t5ckl" path="res://Test Assets/lab man/front lab man walkingbobbing8.png" id="14_8rd5p"]
+[ext_resource type="Texture2D" uid="uid://dfrktfsljgkpo" path="res://Test Assets/lab man/back lab man walking8.png" id="14_lw74r"]
+[ext_resource type="Texture2D" uid="uid://1oht20xvqwc6" path="res://Test Assets/lab man/front lab man walkingbobbing9.png" id="15_wwmao"]
+[ext_resource type="Texture2D" uid="uid://bg42rropye3qw" path="res://Test Assets/lab man/side walking lab man1.png" id="24_tf3ct"]
+[ext_resource type="Texture2D" uid="uid://bqg1q0wf8mm0r" path="res://Test Assets/lab man/side walking lab man2.png" id="25_to4uw"]
+[ext_resource type="Texture2D" uid="uid://ta8sc37co30f" path="res://Test Assets/lab man/side walking lab man3.png" id="26_p7cr0"]
+[ext_resource type="Texture2D" uid="uid://dctxaq2fpmoyc" path="res://Test Assets/lab man/side walking lab man4.png" id="27_vrod0"]
+[ext_resource type="Texture2D" uid="uid://5nbfqmv68gm7" path="res://Test Assets/lab man/side walking lab man5.png" id="28_fcbn2"]
+[ext_resource type="Texture2D" uid="uid://3emmncke0b7f" path="res://Test Assets/lab man/side walking lab man6.png" id="29_hjq2i"]
+[ext_resource type="Texture2D" uid="uid://2xde8f5ajx8y" path="res://Test Assets/lab man/side walking lab man7.png" id="30_ui31c"]
+[ext_resource type="Texture2D" uid="uid://b3qu786eiqm8" path="res://Test Assets/lab man/side walking lab man8.png" id="31_karlm"]
+[ext_resource type="Texture2D" uid="uid://c540g61o8tf37" path="res://Test Assets/lab man/side walking lab man right1.png" id="32_2avfq"]
+[ext_resource type="Texture2D" uid="uid://bdsk2kkm4vjn8" path="res://Test Assets/lab man/side walking lab man right2.png" id="33_d2y64"]
+[ext_resource type="Texture2D" uid="uid://degcdxveqrirm" path="res://Test Assets/lab man/side walking lab man right3.png" id="34_w4oha"]
+[ext_resource type="Texture2D" uid="uid://bypshsv0nsjpa" path="res://Test Assets/lab man/side walking lab man right4.png" id="35_4ribq"]
+[ext_resource type="Texture2D" uid="uid://bdoy6ystbn18l" path="res://Test Assets/lab man/side walking lab man right5.png" id="36_jh1yi"]
+[ext_resource type="Texture2D" uid="uid://rhatopu5gofa" path="res://Test Assets/lab man/side walking lab man right6.png" id="37_1nex2"]
+[ext_resource type="Texture2D" uid="uid://bjnpmfv8v8rdf" path="res://Test Assets/lab man/side walking lab man right7.png" id="38_tgfvv"]
+[ext_resource type="Texture2D" uid="uid://b88d6fvv7gk00" path="res://Test Assets/lab man/side walking lab man right8.png" id="39_yi34y"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ce05h"]
+atlas = ExtResource("2_o3ifh")
+region = Rect2(0, 240, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aop8i"]
+atlas = ExtResource("2_o3ifh")
+region = Rect2(48, 240, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ta2jd"]
+atlas = ExtResource("2_o3ifh")
+region = Rect2(0, 192, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t2ej2"]
+atlas = ExtResource("2_o3ifh")
+region = Rect2(48, 192, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m8cxd"]
+atlas = ExtResource("2_o3ifh")
+region = Rect2(0, 288, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f2anx"]
+atlas = ExtResource("2_o3ifh")
+region = Rect2(48, 288, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oguh4"]
+atlas = ExtResource("2_o3ifh")
+region = Rect2(0, 336, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nn53j"]
+atlas = ExtResource("2_o3ifh")
+region = Rect2(48, 336, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2mse5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ce05h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aop8i")
+}],
+"loop": false,
+"name": &"attack_back",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ta2jd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t2ej2")
+}],
+"loop": false,
+"name": &"attack_front",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m8cxd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f2anx")
+}],
+"loop": false,
+"name": &"attack_left",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oguh4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nn53j")
+}],
+"loop": false,
+"name": &"attack_right",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_w71ue")
+}],
+"loop": true,
+"name": &"idle_back",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_spxdj")
+}],
+"loop": true,
+"name": &"idle_front",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_1e6p3")
+}],
+"loop": true,
+"name": &"idle_left",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_yb677")
+}],
+"loop": true,
+"name": &"idle_right",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_wwmao")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_7xdrn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_wid83")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_g7gci")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_r6t50")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_6rswy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_jbjyn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_lw74r")
+}],
+"loop": true,
+"name": &"walk_back",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_1e6p3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_yb677")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_8cj01")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_i2g7t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_io2mu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_e5iqy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_8t5qx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_8rd5p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_wwmao")
+}],
+"loop": true,
+"name": &"walk_front",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("24_tf3ct")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_to4uw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_p7cr0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_vrod0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_fcbn2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_hjq2i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_ui31c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_karlm")
+}],
+"loop": true,
+"name": &"walk_left",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("32_2avfq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("33_d2y64")
+}, {
+"duration": 1.0,
+"texture": ExtResource("34_w4oha")
+}, {
+"duration": 1.0,
+"texture": ExtResource("35_4ribq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("36_jh1yi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("37_1nex2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("38_tgfvv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("39_yi34y")
+}],
+"loop": true,
+"name": &"walk_right",
+"speed": 15.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_reotu"]
+size = Vector2(10, 16)
+
+[node name="Player" type="CharacterBody2D" groups=["player"]]
+script = ExtResource("1_l2atl")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_2mse5")
+animation = &"walk_back"
+autoplay = "idle_front"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_reotu")
+
+[node name="Gun" parent="." instance=ExtResource("4_fk5o5")]
+scale = Vector2(0.2, 0.2)
+
+[node name="Weapons" type="Node2D" parent="."]
+
+[node name="LMB_Slot" type="Marker2D" parent="Weapons"]
+
+[node name="RMD_Slot" type="Marker2D" parent="Weapons"]
+
+[node name="Q_Slot" type="Marker2D" parent="Weapons"]
+
+[node name="E_Slot" type="Marker2D" parent="Weapons"]
+
+[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_node_state")]
+script = ExtResource("4_n35ei")
+initial_node_state = NodePath("Idle")
+
+[node name="Idle" type="Node" parent="StateMachine" node_paths=PackedStringArray("player", "animated_sprite_2d")]
+script = ExtResource("4_1tkam")
+player = NodePath("../..")
+animated_sprite_2d = NodePath("../../AnimatedSprite2D")
+
+[node name="Walk" type="Node" parent="StateMachine" node_paths=PackedStringArray("player", "animated_sprite_2d")]
+script = ExtResource("5_n35ei")
+player = NodePath("../..")
+animated_sprite_2d = NodePath("../../AnimatedSprite2D")
+
+[node name="Die" type="Node" parent="StateMachine"]
+
+[node name="Attacking" type="Node" parent="StateMachine"]
+script = ExtResource("7_n35ei")

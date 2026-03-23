@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://car7ewxbe0bqv"]
+
+[ext_resource type="PackedScene" uid="uid://bvl21spypis7c" path="res://BaseRoom.tscn" id="1_82rhq"]
+[ext_resource type="PackedScene" uid="uid://cpwcrb7mmdw04" path="res://Scenes/Enemy Spawner/enemy_spawner.tscn" id="2_3mdu2"]
+
+[node name="Room" instance=ExtResource("1_82rhq")]
+door_bot = true
+door_right = true
+
+[node name="Marker2D" parent="." index="6" instance=ExtResource("2_3mdu2")]
+position = Vector2(411, 317)
+spawn_slime = true
