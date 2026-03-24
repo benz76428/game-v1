@@ -7,6 +7,9 @@ var health = 5
 const DNA_DROP = preload("res://Scenes/xp/dna_drop.tscn") 
 
 @onready var player = get_node("/root/DungeonGenerator/Player")
+@export var damage_amount: int = 10
+@export var attack_cooldown: float = 1.0 # Waits 1 second between attacks
+var can_attack: bool = true
 
 func _ready():
 	%Slime.play_walk()
@@ -15,7 +18,21 @@ func _physics_process(delta: float) -> void:
 	var direction = global_position.direction_to(player.global_position)
 	velocity = direction * 50
 	move_and_slide()
+	for i in get_slide_collision_count():
+		var collision = get_slide_collision(i)
+		var collider = collision.get_collider()
+		
+		# Check if it's the player AND if the mob is off cooldown
+		if collider is Player and can_attack:
+			collider.take_damage(damage_amount)
+			trigger_attack_cooldown()
+			
+func trigger_attack_cooldown() -> void:
+	can_attack = false
 	
+	await get_tree().create_timer(attack_cooldown).timeout
+	
+	can_attack = true
 func take_damage():
 	health -= 1
 	%Slime.play_hurt()

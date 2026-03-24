@@ -10,6 +10,8 @@ radius = 54.0
 scale = Vector2(0.2, 0.2)
 collision_layer = 3
 script = ExtResource("1_vkktm")
+damage_amount = 17
+attack_cooldown = 2.0
 
 [node name="Slime" parent="." instance=ExtResource("1_dy6sc")]
 unique_name_in_owner = true

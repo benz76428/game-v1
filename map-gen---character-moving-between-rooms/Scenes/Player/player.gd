@@ -97,17 +97,15 @@ func recalculate_stats() -> void:
 	health_changed.emit(current_health, current_max_health)
 
 func take_damage(amount: int) -> void:
-	# Subtract the damage from the player's health
-	current_health -= amount
+	health -= amount  # Or current_health -= amount, depending on which variable you are using
+	print("Player took damage! Health: ", health)
 	
-	# Emit the signal so your HUD updates!
-	health_changed.emit(current_health, current_max_health)
+	# ADD THIS LINE: Tell the HUD that the health has changed!
+	health_changed.emit(health, max_health) 
 	
-	print("Player took ", amount, " damage! Health is now: ", current_health)
-	
-	if current_health <= 0:
-		print("Player died!")
-		# We can add game over logic here later
+	if health <= 0:
+		print("Player has died!")
+		die()
 
 # If you have healing items/mutations, do the same:
 func heal(amount: int):
