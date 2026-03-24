@@ -9,4 +9,6 @@ door_bot = true
 
 [node name="Marker2D" parent="." index="6" instance=ExtResource("2_vxihq")]
 position = Vector2(366, 348)
-spawn_slime = true
+demon_chance = 0.0
+skeleton_chance = 70.0
+fast_slime_chance = 100.0

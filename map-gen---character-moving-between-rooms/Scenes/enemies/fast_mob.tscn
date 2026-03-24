@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://b5y4kb360ye1h"]
+
+[ext_resource type="Script" uid="uid://b42pjthpj3vy7" path="res://Scenes/enemies/mob.gd" id="1_qrf6t"]
+[ext_resource type="PackedScene" uid="uid://ogik4s70pgwl" path="res://Test Assets/slime/slime.tscn" id="2_f8qna"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nokgg"]
+radius = 54.0
+
+[node name="Mob" type="CharacterBody2D"]
+scale = Vector2(0.2, 0.2)
+collision_layer = 3
+script = ExtResource("1_qrf6t")
+damage_amount = 17
+attack_cooldown = 2.0
+
+[node name="Slime" parent="." instance=ExtResource("2_f8qna")]
+unique_name_in_owner = true
+modulate = Color(0.9443479, 0.110748924, 0.73905593, 1)
+
+[node name="Hitbox" type="CollisionShape2D" parent="."]
+position = Vector2(0, -27)
+shape = SubResource("CircleShape2D_nokgg")

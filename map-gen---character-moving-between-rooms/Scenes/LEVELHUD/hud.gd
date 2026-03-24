@@ -8,8 +8,6 @@ func _ready() -> void:
 	# Wait one frame to guarantee the Player has spawned in
 	await get_tree().process_frame
 	
-	# Find the player and connect to their signals. 
-	# NOTE: Your file uses lowercase "player", so make sure the group name is exactly "player"!
 	var player = get_tree().get_first_node_in_group("player")
 	
 	if player:

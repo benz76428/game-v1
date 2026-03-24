@@ -11,12 +11,9 @@ door_right = true
 
 [node name="Marker2D" parent="." index="6" instance=ExtResource("2_h4vcn")]
 position = Vector2(307, 339)
-spawn_goblin = true
 
 [node name="Marker2D2" parent="." index="7" instance=ExtResource("2_h4vcn")]
 position = Vector2(588, 318)
-spawn_skeleton = true
 
 [node name="Marker2D3" parent="." index="8" instance=ExtResource("2_h4vcn")]
 position = Vector2(701, 297)
-spawn_slime = true
