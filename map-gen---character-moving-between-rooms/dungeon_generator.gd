@@ -172,7 +172,7 @@ func create_rooms() -> void:
 	rooms = []
 	taken_positions = []
 	
-	# Initialize Grid
+	
 	for i in range(grid_size_x * 2):
 		var row = []
 		for j in range(grid_size_y * 2): 
@@ -184,7 +184,7 @@ func create_rooms() -> void:
 	rooms[grid_size_x][grid_size_y] = {"grid_pos": start_pos, "type": 1, "has_spawned": true}
 	taken_positions.append(start_pos)
 	
-	# Generate neighbors
+	
 	for i in range(number_of_rooms - 1):
 		var check_pos = new_position()
 		rooms[check_pos.x + grid_size_x][check_pos.y + grid_size_y] = {
@@ -200,7 +200,7 @@ func new_position() -> Vector2i:
 	
 	while not is_valid:
 		var base_pos: Vector2i
-		# 70% Snaking / 30% Random Branching
+		
 		if randf() < 0.7 and not taken_positions.is_empty():
 			base_pos = taken_positions.back()
 		else:
@@ -240,7 +240,7 @@ func set_room_doors() -> void:
 			room["door_left"]  = (x - 1 >= 0) and rooms[x - 1][y] != null
 			room["door_right"] = (x + 1 < max_x) and rooms[x + 1][y] != null
 
-# --- Utilities ---
+
 
 func load_room_library() -> void:
 	room_library.clear()

@@ -105,7 +105,7 @@ func take_damage(amount: int) -> void:
 	
 	if health <= 0:
 		print("Player has died!")
-		die()
+		get_tree().call_deferred("change_scene_to_file", "res://main_menu.tscn")
 
 # If you have healing items/mutations, do the same:
 func heal(amount: int):

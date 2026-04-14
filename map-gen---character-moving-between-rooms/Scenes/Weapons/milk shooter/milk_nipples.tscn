@@ -11,6 +11,7 @@ collision_layer = 0
 collision_mask = 3
 script = ExtResource("1_71743")
 projectile_scene = ExtResource("2_5td8v")
+fire_rate = 0.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_dk5gl")

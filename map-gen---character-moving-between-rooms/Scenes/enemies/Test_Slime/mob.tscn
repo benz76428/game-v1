@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://bguhbivh8lnuw"]
 
-[ext_resource type="PackedScene" uid="uid://ogik4s70pgwl" path="res://Test Assets/slime/slime.tscn" id="1_dy6sc"]
-[ext_resource type="Script" uid="uid://b42pjthpj3vy7" path="res://Scenes/enemies/mob.gd" id="1_vkktm"]
+[ext_resource type="Script" uid="uid://b42pjthpj3vy7" path="res://Scenes/enemies/Test_Slime/mob.gd" id="1_xg2pg"]
+[ext_resource type="PackedScene" uid="uid://ogik4s70pgwl" path="res://Test Assets/slime/slime.tscn" id="2_xpbij"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_nokgg"]
 radius = 54.0
@@ -9,11 +9,11 @@ radius = 54.0
 [node name="Mob" type="CharacterBody2D"]
 scale = Vector2(0.2, 0.2)
 collision_layer = 3
-script = ExtResource("1_vkktm")
+script = ExtResource("1_xg2pg")
 damage_amount = 17
 attack_cooldown = 2.0
 
-[node name="Slime" parent="." instance=ExtResource("1_dy6sc")]
+[node name="Slime" parent="." instance=ExtResource("2_xpbij")]
 unique_name_in_owner = true
 
 [node name="Hitbox" type="CollisionShape2D" parent="."]

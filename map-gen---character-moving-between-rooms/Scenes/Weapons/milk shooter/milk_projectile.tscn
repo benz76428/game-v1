@@ -1,10 +1,10 @@
 [gd_scene load_steps=4 format=3 uid="uid://bmvrkq7m8pkci"]
 
 [ext_resource type="Script" uid="uid://b0nffno2amrtd" path="res://Scenes/Weapons/milk shooter/milk_projectile.gd" id="1_pfi03"]
-[ext_resource type="Texture2D" uid="uid://bw36ig60cpuaq" path="res://Art/Sprites/Square.png" id="2_8w1eu"]
+[ext_resource type="Texture2D" uid="uid://cah3gyxyk50m8" path="res://Scenes/Weapons/milk shooter/milk.png" id="2_pfi03"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v6jx4"]
-size = Vector2(3, 3)
+size = Vector2(5, 5)
 
 [node name="milk projectile" type="Area2D"]
 light_mask = 0
@@ -12,10 +12,11 @@ visibility_layer = 3
 script = ExtResource("1_pfi03")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, -0.5)
 shape = SubResource("RectangleShape2D_v6jx4")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.9166667, 0.9166667)
-texture = ExtResource("2_8w1eu")
+texture = ExtResource("2_pfi03")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

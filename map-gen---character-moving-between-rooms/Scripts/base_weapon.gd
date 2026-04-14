@@ -5,6 +5,6 @@ class_name BaseWeapon
 @export var fire_rate: float = 0.5
 var can_shoot: bool = true
 
-# Every specific weapon will have its own version of this function
+
 func shoot(aim_direction: Vector2) -> void:
 	pass
